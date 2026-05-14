@@ -89,13 +89,13 @@
   .video-card:nth-child(1)  { grid-column:span 5;grid-row:span 2; }
   .video-card:nth-child(2)  { grid-column:span 4; }
   .video-card:nth-child(3)  { grid-column:span 3; }
-  .video-card:nth-child(4)  { grid-column:span 4; }
-  .video-card:nth-child(5)  { grid-column:span 3;grid-row:span 2; }
-  .video-card:nth-child(6)  { grid-column:span 4;grid-row:span 2; }
+  .video-card:nth-child(4)  { grid-column:span 7; }
+  .video-card:nth-child(5)  { grid-column:span 4; }
+  .video-card:nth-child(6)  { grid-column:span 4; }
   .video-card:nth-child(7)  { grid-column:span 4; }
-  .video-card:nth-child(8)  { grid-column:span 3; }
+  .video-card:nth-child(8)  { grid-column:span 5; }
   .video-card:nth-child(9)  { grid-column:span 4; }
-  .video-card:nth-child(10) { grid-column:span 4; }
+  .video-card:nth-child(10) { grid-column:span 3; }
   .video-thumb { position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;transition:opacity .3s; }
   .video-thumb-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(3,7,26,.8),rgba(3,7,26,.2) 50%,transparent); }
   .video-thumb-num { font-family:var(--font-h);font-size:2.5rem;color:rgba(74,106,255,.2);line-height:1;position:relative;z-index:1; }
@@ -211,8 +211,9 @@
     #hero { padding:0 24px 80px; }
     .hero-stat-row { display:none; }
     .section { padding:80px 24px; }
-    #about { grid-template-columns:1fr;gap:48px; }
-    .about-visual { aspect-ratio:4/3; }
+    #about { grid-template-columns:1fr;gap:40px; }
+    .about-visual { aspect-ratio:4/3;max-height:260px; }
+    .about-text { letter-spacing:0;text-align:left;font-size:.85rem;line-height:1.75; }
     .services-grid { grid-template-columns:1fr; }
     .video-grid { grid-template-columns:repeat(2,1fr);grid-auto-rows:160px; }
     .video-card { grid-column:span 1!important;grid-row:span 1!important; }
@@ -459,13 +460,13 @@
   const videos = [
     { id:'1FqSSYxGBqcC4OWldLz-npdKsoEM6RXE8', label:'Projeto 01' },
     { id:'191t0zL8KjKAJoWMAgSKntnwPknB3f97c',  label:'Projeto 02' },
-    { id:'1amH17oqn2mzPFSTJbtjAJXLDbCLMPzLH',  label:'Projeto 03' },
-    { id:'1vKFOa013iBvHNtTQmneGQKfY7KwnUxRR',  label:'Projeto 04' },
+    { id:'1YQj0Tv_s10GvE1cb9IZYqpDMuA0PG4K0',  label:'Projeto 03' },
+    { id:'1pz9kMfQBmBZn3jNEvVWaQg3O84XG_0RX',  label:'Projeto 04' },
     { id:'1K4Eyf-T9p8lHYz6BgXED22Ma7ZAHeeDq',  label:'Projeto 05' },
-    { id:'1s3lBNV5YQUg_E1Xvwq2rQk4m6zUs1-ma',  label:'Projeto 06' },
-    { id:'1U-mV4PtQQ-kJ8c-RflVwm3KzMwDMJSnv',  label:'Projeto 07' },
+    { id:'1HcmOJBcuBB0nqyamQax_HtoQ_EUHIGWl',  label:'Projeto 06' },
+    { id:'1oNjZz-7n9bt3Ml2fd2qgbnZAb1zexXze',  label:'Projeto 07' },
     { id:'1ZHm0RzFHzUDNSOWvq7FEcX2cxzvzbvI8',  label:'Projeto 08' },
-    { id:'1gUZDmYAI_q65BaapaTAZzOlnM45XUgqB',  label:'Projeto 09' },
+    { id:'17qwDpu_e949sJIe5upzv-hMWF5vINN7l',  label:'Projeto 09' },
     { id:'14U_YpJQF1bV18puWNBmDcrN-FPt5-Ete',  label:'Projeto 10' },
   ];
   const grid = document.getElementById('videoGrid');
