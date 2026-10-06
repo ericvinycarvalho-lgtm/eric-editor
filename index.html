@@ -131,7 +131,7 @@
   .feature-frame { position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--obsidian);border:1px solid var(--line); }
   .feature-frame img { width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter .8s; filter:brightness(.82); }
   .feature-frame:hover img { transform:scale(1.04);filter:brightness(.95); }
-  .feature-frame iframe { position:absolute;inset:0;width:100%;height:100%;border:0; }
+  .feature-frame video, .res-video video { position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000; }
   .feature-play { position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:110px;height:110px;border-radius:50%;border:1px solid rgba(242,237,228,.5);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);background:rgba(10,10,10,.25);transition:all .5s var(--ease); }
   .feature-frame:hover .feature-play { background:var(--bronze);border-color:var(--bronze);width:124px;height:124px; }
   .feature-frame:hover .feature-play svg path { fill:var(--pitch);stroke:var(--pitch); }
@@ -186,7 +186,7 @@
   /* PRODUÇÕES */
   .land-row { display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px; }
   .vert-grid { display:flex;flex-wrap:wrap;justify-content:center;gap:14px; }
-  .vert-grid .vcard { width:calc((100% - 5 * 14px) / 6); }
+  .vert-grid .vcard { width:calc((100% - 4 * 14px) / 5); }
   .vcard { position:relative;overflow:hidden;background:#111;aspect-ratio:9/16; }
   .vcard.land { aspect-ratio:16/9; }
   .vcard .th { position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s var(--ease),filter .6s;filter:brightness(.75) saturate(.85); }
@@ -257,7 +257,7 @@
   .lb.open { opacity:1;pointer-events:auto; }
   .lb-box { position:relative;width:min(92vw,calc(82vh * 9 / 16));aspect-ratio:9/16;background:#000; }
   .lb-box.land { width:min(92vw,1200px);aspect-ratio:16/9; }
-  .lb-box iframe { width:100%;height:100%;border:0; }
+  .lb-box video { width:100%;height:100%;object-fit:contain;background:#000; }
   .lb-close { position:absolute;top:22px;right:24px;background:none;border:1px solid rgba(242,237,228,.3);color:var(--bone);font-family:var(--font-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:10px 16px;z-index:2; }
   .lb-close:hover { border-color:var(--bronze);color:var(--bronze); }
   #imgLb img { max-width:90vw;max-height:86vh;object-fit:contain; }
@@ -627,7 +627,7 @@
 <!-- LIGHTBOXES -->
 <div class="lb" id="lb">
   <button class="lb-close" id="lbClose">Fechar ✕</button>
-  <div class="lb-box" id="lbBox"><iframe id="lbFrame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="lb-box" id="lbBox"><video id="lbVideo" controls playsinline preload="none"></video></div>
 </div>
 <div class="lb" id="imgLb">
   <button class="lb-close" id="imgLbClose">Fechar ✕</button>
@@ -676,18 +676,16 @@
 
   /* PRODUÇÕES — vídeos no Google Drive */
   const land = [
-    { id:'1j5TZPqSpbZbQmAZrukiYwUjlr9Uj5-zV', label:'Cury Vendas', thumb:'assets/cury-poster.jpg' },
     { id:'1WEuZ_sLqF5xQOArZrTZamudXqWv8NBdg', label:'Aftermovie Milane' },
-    { id:'1pz9kMfQBmBZn3jNEvVWaQg3O84XG_0RX', label:'Projeto 04' },
+    { id:'1Rs6odaX0CBDnOrZwqNjTO1MbiwcxZBom', label:'Projeto 11' },
+    { id:'1K4Eyf-T9p8lHYz6BgXED22Ma7ZAHeeDq', label:'Projeto 05' },
     { ig:'https://www.instagram.com/p/DbwNBJpJ9Si/', label:'UJADEP · 90 anos AD Piauí', thumb:'assets/clientes/ujadep-poster.jpg' },
   ];
   const vert = [
-    { id:'1Rs6odaX0CBDnOrZwqNjTO1MbiwcxZBom', label:'Projeto 11' },
+    { id:'1pz9kMfQBmBZn3jNEvVWaQg3O84XG_0RX', label:'Projeto 04' },
     { id:'1UKO0DbgVl-mssxwqAC1qdBq2fXad5Ojn', label:'C&amp;L' },
-    { id:'1FqSSYxGBqcC4OWldLz-npdKsoEM6RXE8', label:'Projeto 01' },
     { id:'191t0zL8KjKAJoWMAgSKntnwPknB3f97c', label:'Projeto 02' },
     { id:'1YQj0Tv_s10GvE1cb9IZYqpDMuA0PG4K0', label:'Projeto 03' },
-    { id:'1K4Eyf-T9p8lHYz6BgXED22Ma7ZAHeeDq', label:'Projeto 05' },
     { id:'1HcmOJBcuBB0nqyamQax_HtoQ_EUHIGWl', label:'Projeto 06' },
     { id:'1oNjZz-7n9bt3Ml2fd2qgbnZAb1zexXze', label:'Projeto 07' },
     { id:'1ZHm0RzFHzUDNSOWvq7FEcX2cxzvzbvI8', label:'Projeto 08' },
@@ -700,21 +698,21 @@
     const d = document.createElement('div');
     d.className = 'vcard reveal' + (isLand ? ' land' : '');
     d.dataset.hover = 'play';
-    const thumb = v.thumb || `https://drive.google.com/thumbnail?id=${v.id}&sz=w800`;
+    const thumb = v.thumb || `assets/videos/${v.id}.jpg`;
     d.innerHTML = `<div class="th" style="background-image:url('${thumb}')"></div>
       <div class="vc-play">${PLAY}</div>
       <div class="vc-meta"><span class="vc-name">${v.label}</span><span class="vc-num">${String(n).padStart(2,'0')}</span></div>`;
     if (v.ig) { d.dataset.hover = 'ver'; d.addEventListener('click', () => window.open(v.ig, '_blank', 'noopener')); }
-    else d.addEventListener('click', () => openLb(`https://drive.google.com/file/d/${v.id}/preview`, isLand));
+    else d.addEventListener('click', () => openLb(`assets/videos/${v.id}.mp4`, isLand));
     return d;
   }
   land.forEach(v => $('#landRow').appendChild(vCard(v, true)));
   vert.forEach(v => $('#vertGrid').appendChild(vCard(v, false)));
 
   /* LIGHTBOX VÍDEO */
-  const lb = $('#lb'), lbFrame = $('#lbFrame'), lbBox = $('#lbBox');
-  function openLb(src, isLand) { lbBox.classList.toggle('land', !!isLand); lbFrame.src = src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeLb() { lb.classList.remove('open'); lbFrame.src = ''; document.body.style.overflow = ''; }
+  const lb = $('#lb'), lbVideo = $('#lbVideo'), lbBox = $('#lbBox');
+  function openLb(src, isLand) { lbBox.classList.toggle('land', !!isLand); lbVideo.src = src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; lbVideo.play().catch(() => {}); }
+  function closeLb() { lb.classList.remove('open'); lbVideo.pause(); lbVideo.removeAttribute('src'); lbVideo.load(); document.body.style.overflow = ''; }
   $('#lbClose').addEventListener('click', closeLb);
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 
@@ -729,7 +727,8 @@
   /* PLAYERS INLINE (Cury + case) */
   function inlinePlayer(el, id) {
     el.addEventListener('click', function () {
-      this.innerHTML = `<iframe src="https://drive.google.com/file/d/${id}/preview?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+      this.innerHTML = `<video src="assets/videos/${id}.mp4" poster="assets/videos/${id}.jpg" controls playsinline autoplay></video>`;
+      const v = this.querySelector('video'); v.play().catch(() => {});
       this.removeAttribute('data-hover'); ring.classList.remove('big'); ring.textContent = '';
     }, { once:true });
   }
