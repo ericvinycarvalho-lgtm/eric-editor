@@ -54,6 +54,8 @@
   .h2 em { font-style:italic;color:var(--bronze); }
   .section { padding:clamp(100px,14vw,180px) var(--pad);position:relative; }
   .rule { height:1px;background:var(--line);margin:0 var(--pad); }
+  #destaque { padding-bottom:0; }
+  #campanhas { padding-top:clamp(72px,8vw,120px); }
 
   /* REVEAL */
   .reveal { opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease); }
@@ -351,7 +353,6 @@
   </div>
   <div class="hero-shade"></div>
   <div class="hero-label mono"><span class="rec"></span>Captação &amp; Edição — Portfólio 2026</div>
-  <div class="hero-tc mono" id="tc">00:00:00:00</div>
   <div class="hero-inner">
     <div class="hero-top">
       <h1 class="hero-title in">
@@ -359,7 +360,7 @@
         <span class="line-mask"><span><em>Visuals</em></span></span>
       </h1>
       <div class="hero-side reveal">
-        <p class="hero-sub">Vídeo de alto impacto para marcas, eventos e campanhas — da captação ao corte final, cada frame é uma decisão editorial.</p>
+        <p class="hero-sub">Vídeos de alto impacto para marcas, eventos e campanhas — da captação ao corte final, cada frame é uma decisão editorial.</p>
         <div class="hero-actions">
           <a href="#destaque" class="btn btn-fill">Ver trabalhos
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg>
@@ -401,12 +402,6 @@
     </div>
     <div class="feature-corner"><span class="tag tag-b">Novo</span><span class="tag">Aftermovie · Edição</span></div>
   </div>
-  <div class="specs reveal">
-    <div class="spec"><div class="mono">Cliente</div><div class="spec-v">Cury Vendas</div></div>
-    <div class="spec"><div class="mono">Formato</div><div class="spec-v">Aftermovie</div></div>
-    <div class="spec"><div class="mono">Meu papel</div><div class="spec-v">Edição</div></div>
-    <div class="spec"><div class="mono">Captação</div><div class="spec-v">Equipe do evento</div></div>
-  </div>
 </section>
 
 <!-- 02 CAMPANHAS -->
@@ -416,7 +411,7 @@
       <div class="eyebrow">Capítulo 02 — Campanhas 2026</div>
       <h2 class="h2"><span class="line-mask"><span>Eleição também</span></span><span class="line-mask"><span>se ganha <em>na tela.</em></span></span></h2>
     </div>
-    <p class="ch-desc reveal">Nas eleições de 2026 editei reels para duas campanhas — em ritmo de reta final, com entregas diárias e conteúdo que precisava emocionar e converter.</p>
+    <p class="ch-desc reveal">Nas eleições de 2026 participei de 2 campanhas — em ritmo de reta final, com entregas diárias e conteúdo que precisava emocionar e converter.</p>
   </div>
 
   <!-- Regina Nunes -->
@@ -477,7 +472,7 @@
       <div class="badge">Estratégia · Roteiro · Captação · Edição</div>
       <div class="camp-name">Fernandes Contabilidade</div>
       <div class="mono camp-role">Contador · Piauí · Cliente recorrente</div>
-      <p class="camp-text" style="margin-top:0">Conteúdo para um contador que traduz contabilidade complicada para o empresário. Sou responsável pelo processo inteiro: da concepção da estratégia de conteúdo, passando pela roteirização e captação, até a edição.</p>
+      <p class="camp-text" style="margin-top:0">Conteúdo para contador que traduz contabilidade complicada para o empresário. Sou responsável pelo processo inteiro: da concepção da estratégia de conteúdo, passando pela roteirização e captação, até à entrega final.</p>
     </div>
     <div>
       <div class="reel-grid four" id="fernGrid"></div>
@@ -766,9 +761,6 @@
     prog.style.width = (y / (document.documentElement.scrollHeight - innerHeight) * 100) + '%';
     if (y < innerHeight) heroMedia.style.transform = `translateY(${y * .3}px)`;
   }, { passive:true });
-  const tc = $('#tc'), t0 = performance.now();
-  (function tick(now){ const f = Math.floor((now - t0) / 1000 * 24); const p = x => String(x).padStart(2,'0');
-    tc.textContent = `${p(Math.floor(f/86400))}:${p(Math.floor(f/1440)%60)}:${p(Math.floor(f/24)%60)}:${p(f%24)}`; requestAnimationFrame(tick); })(t0);
 
   /* MENU MOBILE */
   const burger = $('#burger'), mMenu = $('#mMenu');
