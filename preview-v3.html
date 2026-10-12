@@ -130,6 +130,8 @@
   .ch-desc { font-size:1.02rem;line-height:1.75;color:rgba(242,237,228,.66);max-width:440px;justify-self:end; }
 
   /* FEATURE — CURY */
+  .feature-pair { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  @media (max-width:860px) { .feature-pair { grid-template-columns:1fr; } }
   .feature-frame { position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--obsidian);border:1px solid var(--line); }
   .feature-frame img { width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter .8s; filter:brightness(.82); }
   .feature-frame:hover img { transform:scale(1.04);filter:brightness(.95); }
@@ -391,16 +393,25 @@
   <div class="ch-head">
     <div class="reveal">
       <div class="eyebrow">Capítulo 01 — Destaque</div>
-      <h2 class="h2"><span class="line-mask"><span>Cury Vendas</span></span><span class="line-mask"><span><em>Meeting Setembro</em></span></span></h2>
+      <h2 class="h2"><span class="line-mask"><span>Cury Vendas</span></span><span class="line-mask"><span><em>Aftermovies</em></span></span></h2>
     </div>
-    <p class="ch-desc reveal">Aftermovie da convenção de vendas da Cury. Edição a partir do material captado pela equipe do evento.</p>
+    <p class="ch-desc reveal">Aftermovies dos eventos de vendas da Cury. Edição a partir do material captado pela equipe do evento.</p>
+  </div>
+  <div class="feature-pair">
+  <div class="feature-frame clip" id="superPlay" data-hover="play">
+    <img src="assets/videos/super-meeting.jpg" alt="Aftermovie Cury Vendas — Super Meeting" loading="lazy">
+    <div class="feature-play">
+      <svg width="22" height="24" viewBox="0 0 14 16" fill="none"><path d="M1 1.5l12 6.5L1 14.5V1.5z" fill="#F2EDE4" stroke="#F2EDE4" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="feature-corner"><span class="tag tag-b">Novo</span><span class="tag">Super Meeting</span></div>
   </div>
   <div class="feature-frame clip" id="curyPlay" data-hover="play">
     <img src="assets/cury-poster.jpg" alt="Aftermovie Cury Vendas — Meeting Setembro" loading="lazy">
     <div class="feature-play">
       <svg width="22" height="24" viewBox="0 0 14 16" fill="none"><path d="M1 1.5l12 6.5L1 14.5V1.5z" fill="#F2EDE4" stroke="#F2EDE4" stroke-width="1.2" stroke-linejoin="round"/></svg>
     </div>
-    <div class="feature-corner"><span class="tag tag-b">Novo</span><span class="tag">Aftermovie · Edição</span></div>
+    <div class="feature-corner"><span class="tag">Meeting Setembro</span></div>
+  </div>
   </div>
 </section>
 
@@ -727,6 +738,7 @@
       this.removeAttribute('data-hover'); ring.classList.remove('big'); ring.textContent = '';
     }, { once:true });
   }
+  inlinePlayer($('#superPlay'), 'super-meeting');
   inlinePlayer($('#curyPlay'), '1j5TZPqSpbZbQmAZrukiYwUjlr9Uj5-zV');
   inlinePlayer($('#casePlay'), '1k55SzjLYE6C1DVLLkicwJQm3-Qx0HHbJ');
 
