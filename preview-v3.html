@@ -193,6 +193,8 @@
   .vert-grid .vcard { width:calc((100% - 4 * 14px) / 5); }
   .vcard { position:relative;overflow:hidden;background:#111;aspect-ratio:9/16; }
   .vcard.land { aspect-ratio:16/9; }
+  .vcard.wide { grid-column:1 / -1;aspect-ratio:21/9; }
+  @media (max-width:860px) { .vcard.wide { aspect-ratio:16/9; } }
   .vcard .th { position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s var(--ease),filter .6s;filter:brightness(.75) saturate(.85); }
   .vcard:hover .th { transform:scale(1.06);filter:brightness(.95) saturate(1); }
   .vcard::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.85),transparent 50%);pointer-events:none; }
@@ -682,6 +684,7 @@
 
   /* PRODUÇÕES — vídeos no Google Drive */
   const land = [
+    { id:'cha-revelacao', label:'Chá Revelação', wide:true },
     { id:'1WEuZ_sLqF5xQOArZrTZamudXqWv8NBdg', label:'Aftermovie Milane' },
     { id:'1Rs6odaX0CBDnOrZwqNjTO1MbiwcxZBom', label:'Projeto 11' },
     { id:'1K4Eyf-T9p8lHYz6BgXED22Ma7ZAHeeDq', label:'Projeto 05' },
@@ -702,7 +705,7 @@
   function vCard(v, isLand) {
     n++;
     const d = document.createElement('div');
-    d.className = 'vcard reveal' + (isLand ? ' land' : '');
+    d.className = 'vcard reveal' + (isLand ? ' land' : '') + (v.wide ? ' wide' : '');
     d.dataset.hover = 'play';
     const thumb = v.thumb || `assets/videos/${v.id}.jpg`;
     d.innerHTML = `<div class="th" style="background-image:url('${thumb}')"></div>
