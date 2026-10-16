@@ -230,7 +230,8 @@
   .svc-b { font-size:.98rem;line-height:1.7;color:rgba(242,237,228,.62); }
 
   /* DEPOIMENTOS */
-  .testi-top { display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:14px; }
+  .testi-top { display:grid;grid-template-columns:1fr 1fr 1fr 1.6fr;gap:14px; }
+  @media (min-width:1101px) { .testi-top .quote { padding:28px;gap:18px; } .testi-top .quote blockquote { font-size:1.2rem; } }
   .vtesti { position:relative;aspect-ratio:9/16;overflow:hidden;background:#111; }
   .vtesti video { width:100%;height:100%;object-fit:cover; }
   .vtesti-ov { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(10,10,10,.75),transparent 55%);transition:opacity .4s; }
@@ -271,8 +272,8 @@
   /* RESPONSIVE */
   @media (max-width:1100px) {
     .vert-grid .vcard { width:calc((100% - 3 * 14px) / 4); }
-    .testi-top { grid-template-columns:1fr 1fr; }
-    .quotes { grid-column:span 2;flex-direction:row; }
+    .testi-top { grid-template-columns:repeat(3,1fr); }
+    .quotes { grid-column:span 3;flex-direction:row; }
   }
   @media (max-width:900px) {
     .nav-links, .nav-cta { display:none; }
@@ -303,11 +304,15 @@
     .res-stats .kpi:nth-child(odd) { border-right:1px solid var(--line) !important;padding-right:14px !important; }
     .res-stats .kpi:nth-child(even) { padding-left:16px !important; }
     .svc { grid-template-columns:1fr;gap:12px;padding:30px 0; }
-    .testi-top { grid-template-columns:1fr 1fr;gap:10px; }
+    .testi-top { grid-template-columns:repeat(3,1fr);gap:8px; }
     .quotes { flex-direction:column; }
     .proof { width:240px;height:180px; }
     .feature-play { width:76px;height:76px; }
     .feature-frame:hover .feature-play { width:84px;height:84px; }
+  }
+  @media (max-width:600px) {
+    .vtesti-ov .feature-play { width:44px;height:44px; }
+    .vtesti-name { left:6px;right:6px;bottom:6px;font-size:.45rem;padding:5px 6px;letter-spacing:.08em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
   }
   @media (prefers-reduced-motion:reduce) {
     *, *::before, *::after { animation:none !important;transition:none !important; }
@@ -583,6 +588,10 @@
       <video playsinline preload="none" poster="assets/testi-rubmar-poster.jpg"><source src="assets/testi-rubmar.mp4" type="video/mp4"></video>
       <div class="vtesti-ov"><div class="feature-play"><svg width="18" height="20" viewBox="0 0 14 16" fill="none"><path d="M1 1.5l12 6.5L1 14.5V1.5z" fill="#F2EDE4" stroke="#F2EDE4" stroke-width="1.2" stroke-linejoin="round"/></svg></div><span class="tag vtesti-name">@rubmarspironello1</span></div>
     </div>
+    <div class="vtesti" data-hover="play">
+      <video playsinline preload="none" poster="assets/testi-gian-poster.jpg"><source src="assets/testi-gian.mp4" type="video/mp4"></video>
+      <div class="vtesti-ov"><div class="feature-play"><svg width="18" height="20" viewBox="0 0 14 16" fill="none"><path d="M1 1.5l12 6.5L1 14.5V1.5z" fill="#F2EDE4" stroke="#F2EDE4" stroke-width="1.2" stroke-linejoin="round"/></svg></div><span class="tag vtesti-name">@giancipolla</span></div>
+    </div>
     <div class="quotes">
       <figure class="quote">
         <blockquote>O seu trabalho é fenomenal. Você foi um dos grandes responsáveis pelo crescimento da nossa empresa. Proativo, rápido e muita qualidade na entrega das edições. Recomendo pra todos!</blockquote>
@@ -595,6 +604,10 @@
     </div>
   </div>
   <div class="proofs reveal" id="proofs">
+    <div class="proof" data-full="assets/testi-11.jpg"><img src="assets/testi-11.jpg" alt="Feedback de cliente" loading="lazy" style="object-position:50% 100%"></div>
+    <div class="proof" data-full="assets/testi-9.jpg"><img src="assets/testi-9.jpg" alt="Feedback de cliente" loading="lazy" style="object-position:50% 50%"></div>
+    <div class="proof" data-full="assets/testi-8.jpg"><img src="assets/testi-8.jpg" alt="Feedback de cliente" loading="lazy" style="object-fit:contain"></div>
+    <div class="proof" data-full="assets/testi-10.jpg"><img src="assets/testi-10.jpg" alt="Feedback de cliente" loading="lazy" style="object-fit:contain"></div>
     <div class="proof" data-full="assets/testi-1.jpg"><img src="assets/testi-1.jpg" alt="Feedback de cliente" loading="lazy" style="object-position:0% 90%"></div>
     <div class="proof" data-full="assets/testi-4.jpg"><img src="assets/testi-4.jpg" alt="Feedback de cliente" loading="lazy" style="object-position:0% 74%"></div>
     <div class="proof" data-full="assets/testi-3.png"><img src="assets/testi-3.png" alt="Feedback de cliente" loading="lazy" style="object-position:50% 22%"></div>
