@@ -123,7 +123,14 @@
     .scene-v { position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto; }
     .scene::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),transparent 45%,transparent 75%,rgba(0,0,0,.5));pointer-events:none; }
     .scene-bot { flex-direction:column;align-items:flex-start; }
-    .scene-actions { justify-content:flex-start; }
+    .scene-actions { justify-content:flex-start;width:100%;flex-direction:column;gap:10px; }
+    .scene-actions .watch { width:100%;justify-content:center;padding:18px 20px;font-size:.82rem;font-weight:600;letter-spacing:.08em;background:var(--bronze);border-color:var(--bronze);color:var(--pitch); }
+    .scene-actions .watch b { color:var(--pitch);font-weight:800; }
+    /* HERO no celular: vídeo inteiro em 16:9, sem corte, texto embaixo */
+    #hero { height:auto;min-height:0;display:block;padding-top:64px; }
+    .hero-video { position:relative;inset:auto;height:auto;aspect-ratio:16/9; }
+    .hero-shade { display:none; }
+    .hero-foot { padding-top:28px; }
   }
   .arch-head { display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px; }
   .arch .land-row { grid-template-columns:repeat(2,1fr); }
@@ -358,8 +365,8 @@
     <div class="scene-bot">
       <div><h2 class="scene-title">Cury Vendas</h2><p class="scene-sub t-xs mut">Edição a partir do material captado pela equipe do evento</p></div>
       <div class="scene-actions t-xs">
-        <button class="watch" data-src="assets/videos/super-meeting.mp4" data-land="1">▶ Super Meeting <b>Novo</b></button>
-        <button class="watch" data-src="assets/videos/1j5TZPqSpbZbQmAZrukiYwUjlr9Uj5-zV.mp4" data-land="1">▶ Meeting Setembro</button>
+        <button class="watch" data-src="assets/videos/super-meeting.mp4" data-land="1">▶︎ Super Meeting <b>Novo</b></button>
+        <button class="watch" data-src="assets/videos/1j5TZPqSpbZbQmAZrukiYwUjlr9Uj5-zV.mp4" data-land="1">▶︎ Meeting Setembro</button>
       </div>
     </div>
   </section>
@@ -368,7 +375,7 @@
     <div class="scene-top t-xs"><span>Cena 02 / 04</span><span class="mut">Aftermovie · Edição</span></div>
     <div class="scene-bot">
       <div><h2 class="scene-title">Selecto Day</h2><p class="scene-sub t-xs mut">Edição a partir do material captado pela equipe do evento</p></div>
-      <div class="scene-actions t-xs"><button class="watch" data-src="assets/videos/1WEuZ_sLqF5xQOArZrTZamudXqWv8NBdg.mp4" data-land="1">▶ Assistir o filme</button></div>
+      <div class="scene-actions t-xs"><button class="watch" data-src="assets/videos/1WEuZ_sLqF5xQOArZrTZamudXqWv8NBdg.mp4" data-land="1">▶︎ Assistir o filme</button></div>
     </div>
   </section>
   <section class="scene" id="valorem" data-theme="dark">
@@ -376,7 +383,7 @@
     <div class="scene-top t-xs"><span>Cena 03 / 04</span><span class="mut">Evento · Edição</span></div>
     <div class="scene-bot">
       <div><h2 class="scene-title">Valorem Space</h2><p class="scene-sub t-xs mut">Edição a partir do material captado pela equipe do evento</p></div>
-      <div class="scene-actions t-xs"><button class="watch" data-src="assets/videos/1K4Eyf-T9p8lHYz6BgXED22Ma7ZAHeeDq.mp4" data-land="1">▶ Assistir o filme</button></div>
+      <div class="scene-actions t-xs"><button class="watch" data-src="assets/videos/1K4Eyf-T9p8lHYz6BgXED22Ma7ZAHeeDq.mp4" data-land="1">▶︎ Assistir o filme</button></div>
     </div>
   </section>
   <section class="scene" id="cha" data-theme="dark">
@@ -384,7 +391,7 @@
     <div class="scene-top t-xs"><span>Cena 04 / 04</span><span class="mut">Captação &amp; Edição</span></div>
     <div class="scene-bot">
       <div><h2 class="scene-title">Chá Revelação</h2><p class="scene-sub t-xs mut">Captação e edição</p></div>
-      <div class="scene-actions t-xs"><button class="watch" data-src="assets/videos/cha-revelacao.mp4" data-land="1">▶ Assistir o filme</button></div>
+      <div class="scene-actions t-xs"><button class="watch" data-src="assets/videos/cha-revelacao.mp4" data-land="1">▶︎ Assistir o filme</button></div>
     </div>
   </section>
 </div>
